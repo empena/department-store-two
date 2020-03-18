@@ -13,7 +13,7 @@ export default class DeleteDepartment extends React.Component{
 }
   render(){
     return (
-      <>Blah</>
+      <></>
     )
   }
 }
