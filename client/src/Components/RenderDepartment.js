@@ -17,6 +17,12 @@ const renderDepartment = ({departments}) => {
       <Button as={Link} to={`/departments/${department.id}`} color='blue'>
         View
       </Button>
+      <Button as={Link} to={`departments/edit/${department.id}`} color='purple'>
+        Edit
+      </Button>
+      <Button as={Link} to={`departments/delete/${department.id}`} color='red'>
+        Delete
+      </Button>
     </Card.Content>
   </Card>
   ))

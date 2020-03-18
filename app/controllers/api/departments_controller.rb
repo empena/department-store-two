@@ -37,7 +37,7 @@ class Api::DepartmentsController < ApplicationController
   end 
 
   def department_params
-    params.require(:department).permit(:name, :description)
+    params.require(:department).permit(:name, :description, :id)
   end
 
   
