@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import {Segment, Header, Button, Form} from 'semantic-ui-react';
+import {Segment, Header, Grid, Form} from 'semantic-ui-react';
+import styled, { keyframes } from "styled-components";
+
 
 export default class Items extends React.Component {
 
@@ -57,7 +59,9 @@ export default class Items extends React.Component {
 
 
     return (
-      <Segment>
+      <BackgroundGradient>
+      
+      <Segment as={Transparent}>
         <h2> Add Item</h2>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group widths="equal">
@@ -89,14 +93,57 @@ export default class Items extends React.Component {
 
         <Header as="h1">Items</Header>
         {this.state.items.map(item => (
-          <Segment key={`item=${item.id}`}>
+          <BackgroundGradientCard>
+          
+          <Segment key={`item=${item.id}`} as={Transparent}>
             <Header as="h3">{item.name}</Header>
             <h4>{item.description}</h4>
             <p> {item.price} </p>
-            <Button onClick={() => this.deleteItem(item.id)} color='red'>delete</Button>
+            <StyledButton onClick={() => this.deleteItem(item.id)} color='red'>delete</StyledButton>
           </Segment>
+          </BackgroundGradientCard>
         ))}
       </Segment>
+      </BackgroundGradient>
     );
   }
 }
+
+
+
+const StyledButton = styled.div`
+  display: flex;
+  background: #fd1d1d;
+  width: 12%;
+  height: 
+  color: white;
+  color: white;
+  padding: 15px;
+  justify-content: center;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  border-radius: .28571429rem;
+  font-weight: bold;
+  padding: .78571429em 1.5em .78571429em;
+  text-align:center;
+  
+  line-height: 1em;
+  
+  &:hover {
+    background: white;
+    color: #fd1d1d;
+    transition: background 0.3s ease;
+    
+    padding: .7857142em 1.5em .7857142em;
+    font-weight: 700;
+  }`
+
+  const BackgroundGradient = styled.div`
+    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+  `
+const BackgroundGradientCard= styled.div`
+  background: linear-gradient(90deg, rgba(162,162,236,0.9743084733893558) 0%, rgba(47,204,236,1) 100%);
+`
+  const Transparent = styled.div`
+  background: transparent !important;
+`;

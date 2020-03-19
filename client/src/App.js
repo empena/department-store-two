@@ -9,7 +9,7 @@ import DepartmentForm from './Components/DepartmentForm'
 import DepartmentView from './Components/DepartmentView'
 import UpdateDepartmentForm from './Components/UpdateDepartmentForm'
 import DeleteDepartment from './Components/DeleteDepartment';
-
+import './App.css'
 
 function App() {
   return (
