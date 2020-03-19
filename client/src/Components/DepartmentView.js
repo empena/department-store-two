@@ -5,7 +5,7 @@ import Items from './Items';
 
 class DepartmentView extends React.Component {
 
-  state = { department: {}, items: []  };
+  state = { department: {} };
   
   componentDidMount(){
     const departmentId = this.props.match.params.id
@@ -27,7 +27,7 @@ class DepartmentView extends React.Component {
       </Segment>
 
       <br />
-      
+
       <Items props departmentId={this.props.match.params.id} />
 
       <br />

@@ -20,7 +20,7 @@ export default class Items extends React.Component {
 
   deleteItem(id){
     const {departmentId} = this.props;
-    axios.delete(`api/departments/${departmentId}/items/${id}`)
+    axios.delete(`/api/departments/${departmentId}/items/${id}`)
     .then(() => {
       const newItems = this.state.items.filter ( item => item.id != id)
       this.setState({

@@ -1,7 +1,7 @@
 class Api::ItemsController < ApplicationController 
 
   def index
-    department = Department.find(params{:department_id})
+    department = Department.find(params[:department_id])
     render json: department.items
   end
 
@@ -14,7 +14,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def destroy
-    Item.find(params:id).destroy
+    Item.find(params[:id]).destroy
   end
 
   private 
