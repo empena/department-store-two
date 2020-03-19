@@ -1,21 +1,23 @@
 import React from 'react'
 import axios from 'axios'
 import { Button, Header, Segment} from 'semantic-ui-react'
+import Items from './Items';
 
 class DepartmentView extends React.Component {
 
-  state = { departments: {}, };
+  state = { department: {}, items: []  };
   
   componentDidMount(){
-    axios.get(`/api/departments/${this.props.match.params.id}`)
+    const departmentId = this.props.match.params.id
+    axios.get(`/api/departments/${departmentId}`)
     .then( res => {
-      this.setState({ departments: res.data, })
+      this.setState({ department: res.data, })
     })
   }
   
   render(){
     
-      const {name, description, id} = this.state.departments
+      const {name, description} = this.state.department
       
     return(
       <>
@@ -23,7 +25,14 @@ class DepartmentView extends React.Component {
         <Header as="h1">{ name }</Header>
         <p>{ description }</p>    
       </Segment>
+
       <br />
+      
+      <Items props departmentId={this.props.match.params.id} />
+
+      <br />
+      <br />
+
       <Button 
         color="blue"
         onClick={this.props.history.goBack}>
